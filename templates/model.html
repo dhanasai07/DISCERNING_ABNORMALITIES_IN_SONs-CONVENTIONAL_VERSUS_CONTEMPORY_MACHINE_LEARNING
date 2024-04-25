@@ -1,0 +1,55 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+
+    <div class="container" style="height: 50vh;">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Model Training</h1><br><br><br>
+        
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <form action="{% url 'model' %}" method="post">
+                {% csrf_token %}
+                
+                <center> <label for="algo" style="color:white;">Select a Model:</label>
+                  <select id="algo" name="algo">
+                    <option value="5">SELECT A ALGORITHM</option>
+                    <option value="0">RandomForestClassifier</option>
+                    <option value="1">SVC</option>
+                    <option value="2">KNeighborsClassifier</option>
+                    <option value="3">KMeans</option>
+                    <option value="4">ANN</option>
+                    
+          
+                  </select>
+                  <br><br><br>
+                  <button type="submit" class="btn btn-primary">Submit</button><br><br><br>
+
+                  <center><b style="color: white;">{{msg}}</b></center><br><br>
+                </center>
+                <!-- <div>
+                    {% for message in messages %}
+                   <center><h4>{{message}}</h4></center>
+                    {% endfor %}
+              </div> -->
+              </form>
+                 
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/static/assets/img/a7.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+
+
+  {% endblock %}
+
+  

@@ -1,0 +1,39 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Load Data </h1>
+        
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <form action="{% url 'load' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <label style="color:White">CHOOSE CSV FILES</label>
+                    <input style="color:White;width:220px" type="file" name="file" placeholder="SELECT CSV FILES" required/><br><br>
+       
+                       <input type="submit" value="submit" class="btn btn-info"><br><br><br>
+                       <div>
+                         {% for message in messages %}
+                        <center><h4 style="color: white;">{{message}}</h4></center>
+                         {% endfor %}
+                   </div>
+             </form>            
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/static/assets/img/a5.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+
+
+  {% endblock %}

@@ -1,0 +1,54 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+
+    <div class="container" style="padding-top: 50px;" >
+      <div class="row">
+        <h1>View Data</h1>
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+            <form action="{% url 'view' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="about_text">
+                    <style>
+                        table,
+                        td {
+                            padding: 10px;
+                            border: 1px solid rgb(253, 253, 253);
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <center>
+                        <table style="margin-left: 4px;color:rgb(251, 249, 255);"><b>
+                                <tr>
+                                    {%for c in columns%}
+                                    <td style="color:rgb(255, 255, 255);"><b>{{c}}</b></td>
+                                    {%endfor%}
+                                </tr>
+                                {%for r in rows%}
+                                <tr>
+                                    {%for j in r%}
+                                    <td style="color:rgb(255, 255, 255);">{{ j }}</td>
+                                    {%endfor%}
+                                </tr>
+                                {%endfor%}
+                            </b> </table>
+                    </center>
+            </form>
+            
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/static/assets/img/a6.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+
+
+  {% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Registration</h1>
+          <form class="row g-3" action="{% url 'registration' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-6" style="color: white;">
+              <label for="Name" class="form-label">Name</label>
+              <input type="text" placeholder="Name" class="form-control" name="Name" required="required">
+            </div>
+            <div class="col-md-6" style="color: white;">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" placeholder="Email"class="form-control" name="email" required="required">
+              </div>
+              <div class="col-md-6" style="color: white;">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" placeholder="Password" class="form-control" name="password" required="required">
+              </div>
+              <div class="col-md-6" style="color: white;">
+                <label for="conpassword" class="form-label">confirm Password</label>
+                <input type="password" placeholder="confirm Password" class="form-control" name="conpassword"  required="required">
+              </div>
+              <div class="col-md-6" style="color: white;">
+                    <label for="Age" class="form-label">Age</label>
+                    <input type="Age" placeholder="Age" name="Age" class="form-control" required="required">
+                </div>
+                <div class="col-md-6" style="color: white;">
+                      <label for="contact" class="form-label">Contact</label>
+                      <input type="contact" placeholder="contact" class="form-control" name="contact" required="required">
+                </div><br><br><br>
+            <div class="col-12">
+             <center> <button type="submit" class="btn btn-primary">Sign in</button></center>
+            </div>
+            <center>
+                <h1 style="color:blue">{{msg}}</h1>
+            </center>
+          </form>
+          {% for message in messages %}
+                                               <center><h4>{{message}}</h4></center>
+                                                {% endfor %}
+    </div>
+    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+      <img src="/static/assets/img/a2.png" class="img-fluid animated" alt="">
+    </div>
+  </div>
+</div>
+
+          
+       
+
+
+
+  {% endblock %}

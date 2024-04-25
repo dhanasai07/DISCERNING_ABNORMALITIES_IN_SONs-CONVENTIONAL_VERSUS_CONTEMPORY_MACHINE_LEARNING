@@ -1,0 +1,119 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+
+  <div class="container" style="height: 50vh;">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up"
+        data-aos-delay="200">
+        <h1>Prediction</h1><br><br><br>
+
+        <div class="d-flex justify-content-center justify-content-lg-start">
+
+          <form action="{% url 'prediction' %}" method="post">
+            {% csrf_token %}
+            <center>
+              <h2 style="margin-left: 20px;">{{msg|safe}}</h2>
+            </center><br><br>
+            <table>
+              <tr>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="PRBUsageUL" class="form-label">PRBUsageUL</label>
+                    <input type="float" placeholder="PRBUsageUL" class="form-control" name="PRBUsageUL"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="PRBUsageDL" class="form-label">PRBUsageDL</label>
+                    <input type="float" placeholder="PRBUsageDL" class="form-control" name="PRBUsageDL"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="meanThr_DL" class="form-label">MeanThr_DL</label>
+                    <input type="float" placeholder="meanThr_DL" class="form-control" name="meanThr_DL"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="meanThr_UL" class="form-label">MeanThr_UL</label>
+                    <input type="float" placeholder="meanThr_UL" class="form-control" name="meanThr_UL"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="maxThr_DL" class="form-label">MaxThr_DL</label>
+                    <input type="float" placeholder="maxThr_DL" name="maxThr_DL" class="form-control"
+                      required="required">
+                  </div>
+                </td>
+              </tr>
+            </table><br><br>
+
+            <table>
+              <tr>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="maxThr_UL" class="form-label">MaxThr_UL</label>
+                    <input type="float" placeholder="maxThr_UL" class="form-control" name="maxThr_UL"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="meanUE_DL" class="form-label">MeanUE_DL</label>
+                    <input type="float" placeholder="meanUE_DL" name="meanUE_DL" class="form-control"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="meanUE_UL" class="form-label">MeanUE_UL</label>
+                    <input type="float" placeholder="meanUE_UL" name="meanUE_UL" class="form-control"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="maxUE_DL" class="form-label">MaxUE_DL</label>
+                    <input type="float" placeholder="maxUE_DL" name="maxUE_DL" class="form-control"
+                      required="required">
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-12" style="color: white;">
+                    <label for="maxUE_UL" class="form-label">MaxUE_UL</label>
+                    <input type="float" placeholder="maxUE_UL" name="maxUE_UL" class="form-control" required="required">
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <br><br><br>
+            <div class="col-12">
+              <center> <button type="submit" class="btn btn-primary">Sign in</button></center>
+            </div>
+           
+          </form>
+
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/static/assets/img/a8.png" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+
+
+
+{% endblock %}

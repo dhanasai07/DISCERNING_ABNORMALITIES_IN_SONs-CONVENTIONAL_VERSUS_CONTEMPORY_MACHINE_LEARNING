@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up"
+        data-aos-delay="200">
+        <h1>Login</h1><br><br><br>
+        <form class="row g-3" action="/login" method="post">
+          {% csrf_token %}
+
+          <div class="col-md-6" style="color: white;">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" placeholder="Email" class="form-control" name="email" required="required">
+          </div>
+          <div class="col-md-6" style="color: white;">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" placeholder="Password" class="form-control" name="password" required="required">
+          </div>
+
+          <center> <button type="submit" class="btn btn-primary">Sign in</button></center>
+          <center>
+            <h1 style="color:rgb(255, 255, 255)">{{msg}}</h1>
+          </center>
+        </form>
+        {% for message in messages %}
+        <center>
+          <h4>{{message}}</h4>
+        </center>
+        {% endfor %}
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/static/assets/img/a4.png" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+
+
+
+{% endblock %}

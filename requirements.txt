@@ -1,0 +1,6 @@
+pandas
+numpy
+scikit-learn
+Django
+imblearn.over_sampling
+tensorflow
